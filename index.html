@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta name="author" content="Ramon Valverde" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Formulario de Triagem</title>
+    <link rel="stylesheet" type="text/css" href="CSS/styles.css" />
+</head>
+
+<body>
+    <!-- Formulário para entrada de dados -->
+    <main>
+        <h1>Verificação de Cadastro</h1>
+
+        <form onsubmit="event.preventDefault()">
+        <div id="formulario">
+            <label>Nome:</label><input id="nome" type="text" placeholder="Digite seu nome completo..." required><br>
+            <label>Idade:</label><input id="idade" type="number" placeholder="Digite sua idade..." required><br>
+            <label>CPF:</label><input id="cpf" type="text" placeholder="000.000.000-00"
+                oninput="autoincremento(this, 'CPF')" required/><br>
+            <label>Sintomas:</label><textarea id="sintomas" type="text"
+                placeholder="Descreva os sintomas do paciente..." required></textarea><br>
+
+            <div id="btn_verificar">
+                <input id="enviar" type="submit" value="VERIFICAR" onclick="verificarCadastro()">
+            </div>
+        </div>
+    </form>
+
+        <h3>Resultados:</h3>
+        <div id="resultados"></div>
+    </main>
+
+    <script language="JavaScript" src="JavaScript/validacao.js"></script>
+</body>
+
+</html>
