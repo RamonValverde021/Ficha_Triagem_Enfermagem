@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta name="author" content="Ramon Valverde" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Relatório Enfermeira</title>
+    <link rel="stylesheet" type="text/css" href="../_css/styles.css" />
+</head>
+
+<body id="relatorio">
+
+    <main id="resultado">
+        <div id="descricao">
+        </div>
+    </main>
+
+    <script>
+        const _nome = sessionStorage.getItem('NOME');
+        const _idade = sessionStorage.getItem('IDADE');
+        const _cpf = sessionStorage.getItem('CPF');
+        const _sintomas = sessionStorage.getItem('SINTOMAS');
+
+        if (_nome && _idade && _cpf && _sintomas) {
+            document.getElementById('descricao').innerHTML = `
+            <p><label>Nome: </label> ${_nome}</p><br>
+            <p><label>Idade: </label> ${_idade}</p> <br>
+            <p><label>CPF: </label> ${_cpf}</p><br>
+            <p><label>Sintomas: </label> ${_sintomas}</p> 
+            `;
+        }
+    </script>
+
+</body>
+
+</html>
