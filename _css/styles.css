@@ -38,12 +38,12 @@ body {
 }
 
 main {
-    width: 350px;
+    width: 40%;
     background-color: white;
     border: 2px #1a567b solid;
     border-radius: 15px;
     padding: 25px;
-    margin: 30px;
+    margin: 30px 100px;
     text-align: center;
 
 
@@ -68,6 +68,7 @@ h1 {
     color: #1a567b;
     font-weight: bold;
     margin-bottom: 20px;
+    text-transform:uppercase;
 }
 
 h3 {
@@ -91,54 +92,48 @@ input {
     font-size: 15pt;
     padding: 10px;
     border-radius: 10px;
-    margin: 10px 0;
+    margin: 10px 0 30px 0;
     border: 2px #1a567b solid;
 }
 
 textarea {
-    width: 95%;
+    width: 92%;
     height: 50px;
     border-radius: 10px;
-    margin: 5px 0;
+    margin: 10px 0 30px 0;
     font-size: 15pt;
     padding: 10px;
     resize: none;
     border: 2px #1a567b solid;
 }
 
+select {
+    width: 95%;
+    font-size: 15pt;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 10px 0 30px 0;
+    border: 2px #1a567b solid;
+}
+
+input[type=radio] {
+    border: 0px;
+    width: 18px;
+    height: 23px;
+    accent-color: #1a567b;
+    margin: 0 10px 30px 20px;
+    vertical-align: baseline;
+}
+
+div#div_sexo {
+    display: flex;
+    flex-direction: row;
+    margin-top: 10px;
+}
+
 div#resultados {
     text-align: left;
 }
-
-div#btn_verificar {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-}
-
-
-input#enviar {
-    padding: 10px 20px;
-    color: #2d3b48;
-    font-size: 15px;
-    font-weight: bold;
-    background-color: #d0dbe6;
-    border: 2px #2d3b48 solid;
-    border-radius: 10px;
-    text-decoration: none;
-    width: auto;
-    margin:0;
-}
-
-input#enviar:hover {
-    color: #d0dbe6;
-    background-color: #2d3b48;
-    border: 2px #d0dbe6 solid;
-    transition-duration: 0.4s;
-    cursor: pointer;
-}
-
 
 label.relatorio {
     margin-bottom: 5%;
@@ -155,8 +150,6 @@ p {
     color: #2d3b48;
     font-size: 15pt;
 }
-
-
 
 /* -------------------------------------------------------- */
 
@@ -187,12 +180,64 @@ p {
 }
 
 ::-webkit-scrollbar-thumb {
-    background-color: #007aff;
+    background-color: #1a567b;
     border-radius: 15px;
-   
+
 }
 
 ::-webkit-scrollbar-track {
     background-color: #f1f1f1;
     margin: 10px 0;
+}
+
+
+
+
+/*    --------------------- Botões --------------------- */
+
+div#btn_verificar {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+input.btn_confirma {
+    width: 92%;
+    font-size: 15pt;
+    padding: 10px 0;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    border: 2px #1a567b solid;
+    background-color: #1a567b;
+    color: white;
+    text-decoration: none;
+}
+
+input.btn_confirma:hover {
+    color: #1a567b;
+    background-color: white;
+    border: 2px #1a567b solid;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+a.btn_voltar {
+    width: 92%;
+    font-size: 15pt;
+    padding: 10px 0;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    color: #d0dbe6;
+    background-color: #2d3b48;
+    border: 2px #d0dbe6 solid;
+    text-decoration: none;
+}
+
+a.btn_voltar:hover {
+    color: #2d3b48;
+    border: 2px #1a567b solid;
+    background-color: white;
+    transition-duration: 0.4s;
+    cursor: pointer;
 }

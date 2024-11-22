@@ -14,7 +14,7 @@
     <main>
         <h1>Verificação de Cadastro</h1>
 
-        <form onsubmit="event.preventDefault()">
+        <form id="form" submit="event.preventDefault()">
             <div id="formulario">
                 <label>Nome Completo:</label>
                 <input id="nome" type="text" placeholder="Digite seu nome completo..." required>
@@ -26,30 +26,46 @@
                 <input id="cpf" type="text" placeholder="000.000.000-00" oninput="autoincremento(this, 'CPF')" required>
 
                 <label>Sexo:</label>
-                <input type="radio" name="sexo" id="mascolino" required>
-                <label for="mascolino">Mascolino</label>
-                <input type="radio" name="sexo" id="feminino" required>
-                <label for="feminino">Feminino</label>
+                <div id="div_sexo">
+                    <input type="radio" name="sexo" id="mascolino" required>
+                    <label for="mascolino">Mascolino</label>
+                    <input type="radio" name="sexo" id="feminino" required>
+                    <label for="feminino">Feminino</label>
+                </div>
 
                 <label>Celular:</label>
-                <input id="celular" type="tel" placeholder="(00) 0 0000 - 0000" oninput="autoincremento(this, 'CEL')" required>
+                <input id="celular" type="tel" placeholder="(00) 0 0000 - 0000" oninput="autoincremento(this, 'CEL')"
+                    required>
 
                 <label>E-Mail:</label>
-                <input id="email" type="email" placeholder="seu.email@mail.com" required>
+                <input id="e-mail" type="email" placeholder="seu.email@mail.com" required>
 
                 <label>Sintomas:</label>
-                <textarea id="sintomas" type="text" placeholder="Descreva os sintomas do paciente..." required></textarea>
+                <textarea id="sintomas" placeholder="Descreva os sintomas do paciente..."></textarea>
 
+                <label>Gravidade do Caso:</label>
+                <select id="gravidade" name="gravidade_name">
+                    <option value="leve" selected>Leve</option>
+                    <option value="moderada">Moderada</option>
+                    <option value="grave">Grave</option>
+                </select>
 
-                
+                <label>Temperatura (°C):</label>
+                <input id="temperatura" type="number" placeholder="Temperatura em °C" required>
+
+                <label>Pressão Arterial (mmHg):</label>
+                <input id="pressao" type="text" placeholder="120/80" required>
+
                 <div id="btn_verificar">
-                    <input id="enviar" type="submit" value="VERIFICAR" onclick="verificarCadastro()">
+                    <input id="enviar" class="btn_confirma" type="submit" value="Enviar Avaliação"
+                        onclick="verificarCadastro()">
+                    <a id="btn_voltar" class="btn_voltar" href="../index.html">Voltar</a>
                 </div>
+
             </div>
         </form>
-
-        <h3>Resultados:</h3>
-        <div id="resultados"></div>
+         <h3>Resultados:</h3>
+        <div id="resultados"></div> 
     </main>
 
     <script language="JavaScript" src="../_js/validacao.js"></script>
