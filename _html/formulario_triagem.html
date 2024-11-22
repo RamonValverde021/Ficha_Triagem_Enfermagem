@@ -14,56 +14,55 @@
     <main>
         <h1>Verificação de Cadastro</h1>
 
-        <form id="form" submit="event.preventDefault()">
-            <div id="formulario">
-                <label>Nome Completo:</label>
-                <input id="nome" type="text" placeholder="Digite seu nome completo..." required>
+        <form id="formulario">
+            <label>Nome Completo:</label>
+            <input id="nome" type="text" placeholder="Digite seu nome completo..." required>
 
-                <label>Data de Nascimento:</label>
-                <input id="nascimento" type="date" required>
+            <label>Data de Nascimento:</label>
+            <input id="nascimento" type="date" required>
 
-                <label>CPF:</label>
-                <input id="cpf" type="text" placeholder="000.000.000-00" oninput="autoincremento(this, 'CPF')" required>
+            <label>CPF:</label>
+            <input id="cpf" type="text" placeholder="000.000.000-00" oninput="autoincremento(this, 'CPF')" required>
 
-                <label>Sexo:</label>
-                <div id="div_sexo">
-                    <input type="radio" name="sexo" id="masculino" value="Masculino" required>
-                    <label for="masculino">Masculino</label>
-                    <input type="radio" name="sexo" id="feminino" value="Feminino" required>
-                    <label for="feminino">Feminino</label>
-                </div>
-
-                <label>Celular:</label>
-                <input id="celular" type="tel" placeholder="(00) 00000 - 0000" oninput="autoincremento(this, 'CEL')"
-                    required>
-
-                <label>E-Mail:</label>
-                <input id="e-mail" type="email" placeholder="seu.email@mail.com" required>
-
-                <label>Sintomas:</label>
-                 <textarea id="sintomas" placeholder="Descreva os sintomas do paciente..."></textarea>
-                 <!-- <input type="text" id="sintomas" placeholder="Descreva os sintomas do paciente..." > -->
-
-                <label>Gravidade do Caso:</label>
-                <select id="gravidade" name="gravidade_name">
-                    <option value="leve" selected>Leve</option>
-                    <option value="moderada">Moderada</option>
-                    <option value="grave">Grave</option>
-                </select>
-
-                <label>Temperatura (°C):</label>
-                <input id="temperatura" type="number" placeholder="Temperatura em °C" required>
-
-                <label>Pressão Arterial (mmHg):</label>
-                <input id="pressao_arterial" type="text" placeholder="120/80" required>
-
-                <div id="btn_verificar">
-                    <input id="enviar" class="btn_confirma" type="submit" value="Enviar Avaliação"
-                        onclick="verificarCadastro()">
-                    <a id="btn_voltar" class="btn_voltar" href="../index.html">Voltar</a>
-                </div>
-
+            <label>Sexo:</label>
+            <div id="div_sexo">
+                <input type="radio" name="sexo" id="masculino" value="Masculino" required>
+                <label for="masculino">Masculino</label>
+                <input type="radio" name="sexo" id="feminino" value="Feminino" required>
+                <label for="feminino">Feminino</label>
             </div>
+
+            <label>Celular:</label>
+            <input id="celular" type="tel" placeholder="(00) 00000 - 0000" oninput="autoincremento(this, 'CEL')"
+                required>
+
+            <label>E-Mail:</label>
+            <input id="e-mail" type="email" placeholder="seu.email@mail.com" required>
+
+            <label>Sintomas:</label>
+            <textarea id="sintomas" placeholder="Descreva os sintomas do paciente..." required></textarea>
+            <!-- <input type="text" id="sintomas" placeholder="Descreva os sintomas do paciente..." > -->
+
+            <label>Gravidade do Caso:</label>
+            <select id="gravidade" name="gravidade_name">
+                <option value="leve" selected style="background-color: DodgerBlue;">Não Urgente</option>
+                <option value="moderada" style="background-color: green;">Pouco Urgente</option>
+                <option value="grave" style="background-color: yellow;">Urgente</option>
+                <option value="grave" style="background-color: orange;">Muito Urgente</option>
+                <option value="grave" style="background-color: red;">Emergente</option>
+            </select>
+
+            <label>Temperatura (°C):</label>
+            <input id="temperatura" type="number" placeholder="Temperatura em °C" required>
+
+            <label>Pressão Arterial (mmHg):</label>
+            <input id="pressao_arterial" type="text" placeholder="120/80" required>
+
+            <div id="btn_verificar">
+                <input id="enviar" class="btn_confirma" type="submit" value="Enviar Avaliação">
+                <a id="btn_voltar" class="btn_voltar" href="../index.html">Voltar</a>
+            </div>
+
         </form>
         <h3>Resultados:</h3>
         <div id="resultados"></div>

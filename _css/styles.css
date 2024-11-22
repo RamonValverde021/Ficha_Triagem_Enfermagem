@@ -56,7 +56,7 @@ main {
     /* Aumenta o limite de altura do formulário */
 }
 
-div#formulario {
+form#formulario {
     width: 100%;
     display: flex;
     align-items: flex-start;
@@ -125,6 +125,10 @@ input[type=radio] {
     vertical-align: baseline;
 }
 
+select option {
+    border-radius: 15px;
+}
+
 div#div_sexo {
     display: flex;
     flex-direction: row;
@@ -190,7 +194,10 @@ p {
     margin: 10px 0;
 }
 
-
+/* Muda a cor de fundo do input */
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 30px white inset;
+}
 
 
 /*    --------------------- Botões --------------------- */
