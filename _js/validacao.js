@@ -7,7 +7,7 @@ function verificarCadastro() {
     resultadosDiv.innerHTML = '';
 
     // Flags booleanas de confirmação
-    var okNome, okIdade, okCPF, okSexo, okCelular, okEmail, okSintomas, okGravidade, okTemperatura, okPressao = False;
+    var okNome, okIdade, okCPF, okSexo, okCelular, okEmail, okSintomas, okGravidade, okTemperatura, okPressao = false;
 
     // Obter valores de entrada
     const nome = document.getElementById('nome').value;
@@ -19,12 +19,12 @@ function verificarCadastro() {
     const sintomas = document.getElementById('sintomas').value;
     const gravidade = document.getElementById('gravidade').value;
     const temperatura = document.getElementById('temperatura').value;
-    const pressao = document.getElementById('pressao').value;
+    const pressao = document.getElementById('pressao_arterial').value;
 
     // Validar nome (deve ter pelo menos 3 letras)
     if (nome.length >= 3) {
         resultadosDiv.innerHTML += '<p class="pass">✔️ Nome válido</p>';
-        okNome = True;
+        okNome = true;
     } else {
         resultadosDiv.innerHTML += '<p class="fail">❌ Nome inválido (mínimo 3 letras)</p>';
     }
@@ -37,7 +37,7 @@ function verificarCadastro() {
 
     if (idade >= 18 && idade <= 120) {
         resultadosDiv.innerHTML += '<p class="pass">✔️ Idade válida</p>';
-        okIdade = True;
+        okIdade = true;
     } else {
         resultadosDiv.innerHTML += '<p class="fail">❌ Idade inválida (deve ser entre 18 e 120 anos)</p>';
     }
@@ -45,15 +45,15 @@ function verificarCadastro() {
     // Validar CPF
     if (cpf.length == 14) {
         resultadosDiv.innerHTML += '<p class="pass">✔️ CPF válido</p>';
-        okCPF = True;
+        okCPF = true;
     } else {
         resultadosDiv.innerHTML += '<p class="fail">❌ CPF inválido</p>';
     }
 
     // Validar Sexo
-    if (sexo_aluno != null) {
+    if (sexo != "") {
         resultadosDiv.innerHTML += '<p class="pass">✔️ Sexo válido</p>';
-        okSexo = True;
+        okSexo = true;
     } else {
         resultadosDiv.innerHTML += '<p class="fail">❌ Sexo inválido (Marque qual é o seu sexo)</p>';
     }
@@ -61,15 +61,15 @@ function verificarCadastro() {
     // Validar Celular
     if (celular.length == 15) {
         resultadosDiv.innerHTML += '<p class="pass">✔️ Celular válido</p>';
-        okCelular = True;
+        okCelular = true;
     } else {
         resultadosDiv.innerHTML += '<p class="fail">❌ Celular inválido</p>';
     }
 
     // Validar E-mail
-    if (!email.length < 3) {
+    if (email.length > 10) {
         resultadosDiv.innerHTML += '<p class="pass">✔️ E-mail válido</p>';
-        okEmail = True;
+        okEmail = true;
     } else {
         resultadosDiv.innerHTML += '<p class="fail">❌ E-mail inválido</p>';
     }
@@ -77,20 +77,21 @@ function verificarCadastro() {
     // Validar Sintomas (deve ter pelo menos 5 letras e no máximo 300 letras)
     if (sintomas.length >= 5 && sintomas.length <= 300) {
         resultadosDiv.innerHTML += '<p class="pass">✔️ Sintoma válido</p>';
-        okSintomas = True;
+        okSintomas = true;
     } else {
         resultadosDiv.innerHTML += '<p class="fail">❌ Sintomas inválido (mínimo 5 letras)</p>';
     }
-
-    if (okNome && okNascimento && okCPF && okSexo && okCelular && okEmail && okSintomas) {
-        sessionStorage.setItem('NOME', nome);
-        sessionStorage.setItem('IDADE', idade);
-        sessionStorage.setItem('CPF', cpf);
-        sessionStorage.setItem('SINTOMAS', sintomas);
-        window.location.href = "../_html/relatorio.html";
-    } else {
-        alert("ACESSO NEGADO: verifique as informações");
-    }
+    
+        //if (okNome && okNascimento && okCPF && okSexo && okCelular && okEmail && okSintomas) {
+            sessionStorage.setItem('NOME', nome);
+            sessionStorage.setItem('IDADE', idade);
+            sessionStorage.setItem('CPF', cpf);
+            sessionStorage.setItem('SINTOMAS', sintomas);
+            window.location.href = "../_html/relatorio.html";
+       /* } else {
+            alert("ACESSO NEGADO: verifique as informações");
+        }*/
+        
 }
 
 // Função que incrementa automaticamente os campos

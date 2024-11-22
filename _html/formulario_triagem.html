@@ -20,16 +20,16 @@
                 <input id="nome" type="text" placeholder="Digite seu nome completo..." required>
 
                 <label>Data de Nascimento:</label>
-                <input id="nascimento" type="date" oninput="pegandoData()" required>
+                <input id="nascimento" type="date" required>
 
                 <label>CPF:</label>
                 <input id="cpf" type="text" placeholder="000.000.000-00" oninput="autoincremento(this, 'CPF')" required>
 
                 <label>Sexo:</label>
                 <div id="div_sexo">
-                    <input type="radio" name="sexo" id="masculino" required>
+                    <input type="radio" name="sexo" id="masculino" value="Masculino" required>
                     <label for="masculino">Masculino</label>
-                    <input type="radio" name="sexo" id="feminino" required>
+                    <input type="radio" name="sexo" id="feminino" value="Feminino" required>
                     <label for="feminino">Feminino</label>
                 </div>
 
@@ -41,7 +41,8 @@
                 <input id="e-mail" type="email" placeholder="seu.email@mail.com" required>
 
                 <label>Sintomas:</label>
-                <textarea id="sintomas" placeholder="Descreva os sintomas do paciente..."></textarea>
+                 <textarea id="sintomas" placeholder="Descreva os sintomas do paciente..."></textarea>
+                 <!-- <input type="text" id="sintomas" placeholder="Descreva os sintomas do paciente..." > -->
 
                 <label>Gravidade do Caso:</label>
                 <select id="gravidade" name="gravidade_name">
@@ -54,7 +55,7 @@
                 <input id="temperatura" type="number" placeholder="Temperatura em °C" required>
 
                 <label>Pressão Arterial (mmHg):</label>
-                <input id="pressao" type="text" placeholder="120/80" required>
+                <input id="pressao_arterial" type="text" placeholder="120/80" required>
 
                 <div id="btn_verificar">
                     <input id="enviar" class="btn_confirma" type="submit" value="Enviar Avaliação"
@@ -69,16 +70,6 @@
     </main>
 
     <script language="JavaScript" src="../_js/validacao.js"></script>
-
-    <script>
-        function pegandoData() {
-
-            //const nascimento = document.querySelector('nascimento').valueAsDate;
-
-           
-
-        }
-    </script>
 </body>
 
 </html>
