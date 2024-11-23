@@ -1,137 +1,60 @@
+// Flags booleanas de confirmação
+let okNome, okIdade, okCPF, okSexo, okCelular, okEmail, okSintomas, okTemperatura, okPressao = false;
 
-// Função para verificar nome e idade
-document.getElementById("formulario").addEventListener("submit", function (event) {
-    event.preventDefault(); // Evita o envio padrão do formulário
+// Inicias os dados recebidos do formulario globalmente
+let nome, nascimento, cpf, celular, email, sintomas, temperatura, pressao, idade;
 
-    // Limpar resultados anteriores
-    const resultadosDiv = document.getElementById('resultados');
-    resultadosDiv.innerHTML = '';
-
-    // Flags booleanas de confirmação
-    var okNome, okIdade, okCPF, okSexo, okCelular, okEmail, okSintomas, okTemperatura, okPressao = false;
-
-    // Obter valores de entrada
-    const nome = document.getElementById('nome').value;
-    const nascimento = document.getElementById("nascimento").value;
-    const cpf = document.getElementById('cpf').value;
-    const sexo = document.querySelector('input[name="sexo"]:checked'); // Seleciona o botão de rádio selecionado
-    const celular = document.getElementById('celular').value;
-    const email = document.getElementById('e-mail').value;
-    const sintomas = document.getElementById('sintomas').value;
-    const gravidade = document.getElementById('gravidade').value;
-    const temperatura = document.getElementById('temperatura').value;
-    const pressao = document.getElementById('pressao_arterial').value;
-
-    // Validar nome (deve ter pelo menos 3 letras)
+// Validar nome (deve ter pelo menos 3 letras)
+document.getElementById("nome").addEventListener("input", function () {
+    nome = document.getElementById('nome').value;
+    let feedback = document.getElementById('nome_feedback');
     if (nome.length >= 3) {
-        resultadosDiv.innerHTML += '<p class="pass">✔️ Nome válido</p>';
+        feedback.innerText = '✔️ Nome válido';
+        feedback.className = "pass";
         okNome = true;
     } else {
-        resultadosDiv.innerHTML += '<p class="fail">❌ Nome inválido (mínimo 3 letras)</p>';
-    }
-
-    // Validar idade (deve estar entre 18 e 120 anos)
-    var dataAtual = new Date();
-    var anoAtual = dataAtual.getFullYear();
-    const anoNascimento = new Date(nascimento).getFullYear();
-    const idade = anoAtual - anoNascimento
-
-    if (idade >= 18 && idade <= 120) {
-        resultadosDiv.innerHTML += '<p class="pass">✔️ Idade válida</p>';
-        okIdade = true;
-    } else {
-        resultadosDiv.innerHTML += '<p class="fail">❌ Idade inválida (deve ser entre 18 e 120 anos)</p>';
-    }
-
-    // Validar CPF
-    if (validarCPF(cpf)) {
-        resultadosDiv.innerHTML += '<p class="pass">✔️ CPF válido</p>';
-        okCPF = true;
-    } else {
-        resultadosDiv.innerHTML += '<p class="fail">❌ CPF inválido</p>';
-    }
-
-    // Validar Sexo
-    if (sexo) {
-        resultadosDiv.innerHTML += '<p class="pass">✔️ Sexo válido</p>';
-        okSexo = true;
-    } else {
-        resultadosDiv.innerHTML += '<p class="fail">❌ Sexo inválido (Marque qual é o seu sexo)</p>';
-    }
-
-    // Validar Celular
-    if (celular.length == 15) {
-        resultadosDiv.innerHTML += '<p class="pass">✔️ Celular válido</p>';
-        okCelular = true;
-    } else {
-        resultadosDiv.innerHTML += '<p class="fail">❌ Celular inválido</p>';
-    }
-
-    // Validar E-mail
-    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (emailPattern.test(email)) {
-        resultadosDiv.innerHTML += '<p class="pass">✔️ E-mail válido</p>';
-        okEmail = true;
-    } else {
-        resultadosDiv.innerHTML += '<p class="fail">❌ E-mail inválido</p>';
-    }
-
-    // Validar Sintomas (deve ter pelo menos 5 letras e no máximo 300 letras)
-    if (sintomas.length >= 5 && sintomas.length <= 300) {
-        resultadosDiv.innerHTML += '<p class="pass">✔️ Sintoma válido</p>';
-        okSintomas = true;
-    } else {
-        resultadosDiv.innerHTML += '<p class="fail">❌ Sintomas inválido (mínimo 5 letras)</p>';
-    }
-
-    // Validar Gravidade
-    // Não precisa porque o valor nunca fica vazio
-
-    // Validar Temperatura
-    if (temperatura > 28) {
-        resultadosDiv.innerHTML += '<p class="pass">✔️ Temperatura corporal válida</p>';
-        okTemperatura = true;
-    } else {
-        resultadosDiv.innerHTML += '<p class="fail">❌ Temperatura corporal inválida</p>';
-    }
-
-    // Validar Pressão Arterial
-    if (validarPressaoArterial(pressao)) {
-        resultadosDiv.innerHTML += '<p class="pass">✔️ Pressão Arterial válida</p>';
-        okPressao = true;
-    } else {
-        resultadosDiv.innerHTML += '<p class="fail">❌ Pressão Arterial inválida</p>';
-    }
-
-    if (okNome && okIdade && okCPF && okSexo && okCelular && okEmail && okSintomas && okTemperatura && okPressao) {
-        sessionStorage.setItem('NOME', nome);
-        sessionStorage.setItem('IDADE', idade);
-        sessionStorage.setItem('CPF', cpf);
-        sessionStorage.setItem('SEXO', sexo.value);
-        sessionStorage.setItem('CELULAR', celular);
-        sessionStorage.setItem('EMAIL', email);
-        sessionStorage.setItem('SINTOMAS', sintomas);
-        sessionStorage.setItem('GRAVIDADE', gravidade);
-        sessionStorage.setItem('TEMPERATURA', temperatura);
-        sessionStorage.setItem('PRESSAO', pressao);
-        window.location.href = "../_html/relatorio.html";
-    } else {
-        //alert("ACESSO NEGADO: verifique as informações");
-        return;
+        feedback.innerText = '❌ Nome inválido (mínimo 3 letras)';
+        feedback.className = "fail";
+        okCPF = false;
     }
 });
 
-// Função para validar pressão arterial
-function validarPressaoArterial(PA) {
-    const regex = /^\d{2,3}\/\d{2,3}$/; // Formato 120/80
-    if (!regex.test(PA)) return false;
-    const [sistolica, diastolica] = PA.split("/").map(Number);
-    return sistolica >= 90 && sistolica <= 200 && diastolica >= 60 && diastolica <= 120;
-}
+// Validar idade (deve estar entre 18 e 120 anos)
+document.getElementById("nascimento").addEventListener("input", function () {
+    nascimento = document.getElementById("nascimento").value;
+    var dataAtual = new Date();
+    var anoAtual = dataAtual.getFullYear();
+    const anoNascimento = new Date(nascimento).getFullYear();
+    idade = anoAtual - anoNascimento;
+    let feedback = document.getElementById('nascimento_feedback');
+    if (idade >= 18 && idade <= 120) {
+        feedback.innerText = '✔️ Idade válida';
+        feedback.className = "pass";
+        okIdade = true;
+    } else {
+        feedback.innerText = '❌ Idade inválida (deve ser entre 18 e 120 anos)';
+        feedback.className = "fail";
+        okCPF = false;
+    }
+});
 
-// Função para validar CPF
+// Validar CPF
+document.getElementById('cpf').addEventListener("input", function () {
+    cpf = document.getElementById('cpf').value;
+    let feedback = document.getElementById('cpf_feedback');
+    if (validarCPF(cpf)) {
+        feedback.innerText = '✔️ CPF válido';
+        feedback.className = "pass";
+        okCPF = true;
+    } else {
+        feedback.innerText = '❌ CPF inválido';
+        feedback.className = "fail";
+        okCPF = false;
+    }
+});
+// Função para validar código CPF
 function validarCPF(cpf) {
-    if(cpf.length < 14) return false;
+    if (cpf.length < 14) return false;
     const strCPF = cpf.replace(/[.-]/g, ""); // Limpa o cpf
 
     var Soma;
@@ -154,6 +77,89 @@ function validarCPF(cpf) {
     return true;
 }
 
+// Validar Celular
+document.getElementById('celular').addEventListener("input", function () {
+    celular = document.getElementById('celular').value;
+    let feedback = document.getElementById('celular_feedback');
+    if (celular.length == 15) {
+        feedback.innerText = '✔️ Celular válido';
+        feedback.className = "pass";
+        okCelular = true;
+    } else {
+        feedback.innerText = '❌ Celular inválido';
+        feedback.className = "fail";
+        okCelular = false;
+    }
+});
+
+// Validar E-mail
+document.getElementById('e-mail').addEventListener("input", function () {
+    email = document.getElementById('e-mail').value;
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    let feedback = document.getElementById('email_feedback');
+    if (emailPattern.test(email)) {
+        feedback.innerText = '✔️ E-mail válido';
+        feedback.className = "pass";
+        okEmail = true;
+    } else {
+        feedback.innerText = '❌ E-mail inválido';
+        feedback.className = "fail";
+        okEmail = false;
+    }
+});
+
+// Validar Sintomas (deve ter pelo menos 5 letras e no máximo 300 letras)
+document.getElementById('sintomas').addEventListener("input", function () {
+    sintomas = document.getElementById('sintomas').value;
+    let feedback = document.getElementById('sintomas_feedback');
+    if (sintomas.length >= 5 && sintomas.length <= 300) {
+        feedback.innerText = '✔️ Sintoma válido';
+        feedback.className = "pass";
+        okSintomas = true;
+    } else {
+        feedback.innerText = '❌ Sintomas inválido (mínimo 5 letras)';
+        feedback.className = "fail";
+        okSintomas = false;
+    }
+});
+
+// Validar Temperatura
+document.getElementById('temperatura').addEventListener("input", function () {
+    temperatura = document.getElementById('temperatura').value;
+    let feedback = document.getElementById('temperatura_feedback');
+    if (temperatura > 28) {
+        feedback.innerText = '✔️ Temperatura corporal válida';
+        feedback.className = "pass";
+        okTemperatura = true;
+    } else {
+        feedback.innerText = '❌ Temperatura corporal inválida';
+        feedback.className = "fail";
+        okTemperatura = false;
+    }
+});
+
+// Validar Pressão Arterial
+document.getElementById('pressao_arterial').addEventListener("input", function () {
+    pressao = document.getElementById('pressao_arterial').value;
+    let feedback = document.getElementById('pressao_feedback');
+    if (validarPressaoArterial(pressao)) {
+        feedback.innerText = '✔️ Pressão Arterial válida';
+        feedback.className = "pass";
+        okPressao = true;
+    } else {
+        feedback.innerText = '❌ Pressão Arterial inválida';
+        feedback.className = "fail";
+        okPressao = false;
+    }
+});
+// Função para validar digitos da pressão arterial
+function validarPressaoArterial(PA) {
+    const regex = /^\d{2,3}\/\d{2,3}$/; // Formato 120/80
+    if (!regex.test(PA)) return false;
+    const [sistolica, diastolica] = PA.split("/").map(Number);
+    return sistolica >= 90 && sistolica <= 200 && diastolica >= 60 && diastolica <= 120;
+}
+
 // Função que incrementa automaticamente os campos
 function autoincremento(dado, tipo) {
     var valor = dado.value;
@@ -173,3 +179,42 @@ function autoincremento(dado, tipo) {
         if (valor.length == 10) dado.value += "-";
     }
 }
+
+// Função que verifica se está tudo ok e envia o relatorio
+document.getElementById("formulario").addEventListener("submit", function (event) {
+    event.preventDefault(); // Evita o envio padrão do formulário
+
+    // Validar Sexo
+    const sexo = document.querySelector('input[name="sexo"]:checked'); // Seleciona o botão de rádio selecionado
+    let feedback = document.getElementById('sexo_feedback');
+    if (sexo) {
+        feedback.innerText = '✔️ Sexo válido';
+        feedback.className = "pass";
+        okSexo = true;
+    } else {
+        feedback.innerText = '❌ Sexo inválido (Marque qual é o seu sexo)';
+        feedback.className = "fail";
+        okSexo = false;
+    }
+
+    // Validar Gravidade
+    // Não precisa porque o valor nunca fica vazio
+    const gravidade = document.getElementById('gravidade').value;
+
+    if (okNome && okIdade && okCPF && okSexo && okCelular && okEmail && okSintomas && okTemperatura && okPressao) {
+        sessionStorage.setItem('NOME', nome);
+        sessionStorage.setItem('IDADE', idade);
+        sessionStorage.setItem('CPF', cpf);
+        sessionStorage.setItem('SEXO', sexo.value);
+        sessionStorage.setItem('CELULAR', celular);
+        sessionStorage.setItem('EMAIL', email);
+        sessionStorage.setItem('SINTOMAS', sintomas);
+        sessionStorage.setItem('GRAVIDADE', gravidade);
+        sessionStorage.setItem('TEMPERATURA', temperatura);
+        sessionStorage.setItem('PRESSAO', pressao);
+        window.location.href = "../_html/relatorio.html";
+    } else {
+        //alert("ACESSO NEGADO: verifique as informações");
+        return;
+    }
+});

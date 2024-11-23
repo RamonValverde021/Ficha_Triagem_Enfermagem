@@ -12,17 +12,17 @@ const _pressao = sessionStorage.getItem('PRESSAO');
 const _diagnostico = "Olhando no ChatGPT";
 
 document.getElementById('relatorio_final').innerHTML = `
-<label>Gravidade da Situação: </label><p id="gravidade_txt"> ${_gravidade}</p><br>
-<label>Nome: </label><p> ${_nome}</p><br>
-<label>Idade: </label><p> ${_idade} anos</p> <br>
-<label>CPF: </label><p> ${_cpf}</p><br>
-<label>Sexo: </label><p> ${_sexo}</p><br>
-<label>Celular: </label><p> ${_celular}</p><br>
-<label>E-Mail: </label><p> ${_email}</p><br>
-<label>Temperatura Corporal: </label><p> ${_temperatura} °C</p><br>
-<label>Pressão Arterial: </label><p> ${_pressao} mmHg</p><br>
-<label>Sintomas: </label><p> ${_sintomas}</p><br>
-<label>Possivel Diagnostico: </label><p> ${_diagnostico}</p>
+<label>Gravidade da Situação: </label><p id="gravidade_txt" class="relatorio"> ${_gravidade}</p><br>
+<label>Nome: </label><p class="relatorio"> ${_nome}</p><br>
+<label>Idade: </label><p class="relatorio"> ${_idade} anos</p> <br>
+<label>CPF: </label><p class="relatorio"> ${_cpf}</p><br>
+<label>Sexo: </label><p class="relatorio"> ${_sexo}</p><br>
+<label>Celular: </label><p class="relatorio"> ${_celular}</p><br>
+<label>E-Mail: </label><p class="relatorio"> ${_email}</p><br>
+<label>Temperatura Corporal: </label><p class="relatorio"> ${_temperatura} °C</p><br>
+<label>Pressão Arterial: </label><p class="relatorio"> ${_pressao} mmHg</p><br>
+<label>Sintomas: </label><p class="relatorio"> ${_sintomas}</p><br>
+<label>Possivel Diagnostico: </label><p class="relatorio"> ${_diagnostico}</p>
 `;
 
 if (_gravidade == "Não Urgente") {
@@ -39,4 +39,5 @@ if (_gravidade == "Não Urgente") {
     document.getElementById("gravidade_txt").style.fontWeight = "bold";
 } else {
     document.getElementById("gravidade_txt").style.background = "black";
+    document.getElementById("gravidade_txt").style.color = "white";
 }

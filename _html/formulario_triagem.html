@@ -17,12 +17,15 @@
         <form id="formulario">
             <label>Nome Completo:</label>
             <input id="nome" type="text" placeholder="Digite seu nome completo..." required>
+            <p id="nome_feedback" class="feedback"></p>
 
             <label>Data de Nascimento:</label>
             <input id="nascimento" type="date" required>
+            <p id="nascimento_feedback" class="feedback"></p>
 
             <label>CPF:</label>
             <input id="cpf" type="text" placeholder="000.000.000-00" oninput="autoincremento(this, 'CPF')" required>
+            <p id="cpf_feedback" class="feedback"></p>
 
             <label>Sexo:</label>
             <div id="div_sexo">
@@ -31,19 +34,28 @@
                 <input type="radio" name="sexo" id="feminino" value="Feminino" required>
                 <label for="feminino">Feminino</label>
             </div>
+            <p id="sexo_feedback" class="feedback"></p>
 
             <label>Celular:</label>
             <input id="celular" type="tel" placeholder="(00) 00000 - 0000" oninput="autoincremento(this, 'CEL')"
                 required>
+                <p id="celular_feedback" class="feedback"></p>
 
             <label>E-Mail:</label>
             <input id="e-mail" type="email" placeholder="seu.email@mail.com" required>
+            <p id="email_feedback" class="feedback"></p>
 
             <label>Temperatura (°C):</label>
             <input id="temperatura" type="number" placeholder="Temperatura em °C" required>
+            <p id="temperatura_feedback" class="feedback"></p>
 
             <label>Pressão Arterial (mmHg):</label>
             <input id="pressao_arterial" type="text" placeholder="120/80" required>
+            <p id="pressao_feedback" class="feedback"></p>
+
+            <label>Sintomas:</label>
+            <textarea id="sintomas" placeholder="Descreva os sintomas do paciente..." required></textarea>
+            <p id="sintomas_feedback" class="feedback"></p>
 
             <label>Gravidade do Caso:</label>
             <select id="gravidade" name="gravidade_name">
@@ -54,17 +66,12 @@
                 <option value="Emergente" style="background-color: red;">Emergente</option>
             </select>
 
-            <label>Sintomas:</label>
-            <textarea id="sintomas" placeholder="Descreva os sintomas do paciente..." required></textarea>
-
             <div id="btn_verificar">
                 <input id="enviar" class="btn_confirma" type="submit" value="Enviar Avaliação">
                 <a id="btn_voltar" class="btn_voltar" href="../index.html">Voltar</a>
             </div>
 
         </form>
-        <h3>Resultados:</h3>
-        <div id="resultados"></div>
     </main>
 
     <script language="JavaScript" src="../_js/validacao.js"></script>

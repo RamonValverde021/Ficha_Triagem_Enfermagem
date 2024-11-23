@@ -92,7 +92,7 @@ input {
     font-size: 15pt;
     padding: 10px;
     border-radius: 10px;
-    margin: 10px 0 30px 0;
+    margin-top: 10px;
     border: 2px #1a567b solid;
 }
 
@@ -100,7 +100,7 @@ textarea {
     width: 92%;
     height: 50px;
     border-radius: 10px;
-    margin: 10px 0 30px 0;
+    margin-top: 10px;
     font-size: 15pt;
     padding: 10px;
     resize: none;
@@ -121,7 +121,7 @@ input[type=radio] {
     width: 18px;
     height: 23px;
     accent-color: #1a567b;
-    margin: 0 10px 30px 20px;
+    margin: 0 10px 0 20px;
     vertical-align: baseline;
 }
 
@@ -138,8 +138,24 @@ div#relatorio_final {
     flex-direction: column;
 }
 
+p.feedback {
+    color: #2d3b48;
+    font-size: 35pt;
+    word-break: break-all;
+    border-radius: 10px;
+    padding: 5px 10px;
+    margin-bottom: 30px;
+}
 
-p {
+.pass {
+    color: green;
+}
+
+.fail {
+    color: red;
+}
+
+p.relatorio {
     color: #2d3b48;
     font-size: 15pt;
     word-break: break-all;
@@ -182,7 +198,7 @@ p {
 }
 
 ::-webkit-scrollbar-track {
-    background-color: #f1f1f1;
+    background-color: white;
     margin: 10px 0;
 }
 
