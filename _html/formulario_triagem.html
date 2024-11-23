@@ -39,9 +39,11 @@
             <label>E-Mail:</label>
             <input id="e-mail" type="email" placeholder="seu.email@mail.com" required>
 
-            <label>Sintomas:</label>
-            <textarea id="sintomas" placeholder="Descreva os sintomas do paciente..." required></textarea>
-            <!-- <input type="text" id="sintomas" placeholder="Descreva os sintomas do paciente..." > -->
+            <label>Temperatura (°C):</label>
+            <input id="temperatura" type="number" placeholder="Temperatura em °C" required>
+
+            <label>Pressão Arterial (mmHg):</label>
+            <input id="pressao_arterial" type="text" placeholder="120/80" required>
 
             <label>Gravidade do Caso:</label>
             <select id="gravidade" name="gravidade_name">
@@ -52,11 +54,8 @@
                 <option value="Emergente" style="background-color: red;">Emergente</option>
             </select>
 
-            <label>Temperatura (°C):</label>
-            <input id="temperatura" type="number" placeholder="Temperatura em °C" required>
-
-            <label>Pressão Arterial (mmHg):</label>
-            <input id="pressao_arterial" type="text" placeholder="120/80" required>
+            <label>Sintomas:</label>
+            <textarea id="sintomas" placeholder="Descreva os sintomas do paciente..." required></textarea>
 
             <div id="btn_verificar">
                 <input id="enviar" class="btn_confirma" type="submit" value="Enviar Avaliação">

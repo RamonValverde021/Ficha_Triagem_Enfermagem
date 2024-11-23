@@ -12,29 +12,25 @@ const _pressao = sessionStorage.getItem('PRESSAO');
 const _diagnostico = "Olhando no ChatGPT";
 
 document.getElementById('relatorio_final').innerHTML = `
-<p><label>Nome: </label> ${_nome}</p><br>
-<p><label>Idade: </label> ${_idade} anos</p> <br>
-<p><label>CPF: </label> ${_cpf}</p><br>
-<p><label>Sexo: </label> ${_sexo}</p><br>
-<p><label>Celular: </label> ${_celular}</p><br>
-<p><label>E-Mail: </label> ${_email}</p><br>
-<p><label>Sintomas: </label> ${_sintomas}</p><br>
-<p id="gravidade_txt"><label>Gravidade da Situação: </label> ${_gravidade}</p><br>
-<p><label>Temperatura Corporal: </label> ${_temperatura} °C</p><br>
-<p><label>Pressão Arterial: </label> ${_pressao} mmHg</p><br>
-<p><label>Celular: </label> ${_celular}</p><br>
-
-<p><label>Possivel Diagnostico: </label> ${_diagnostico}</p>
+<label>Gravidade da Situação: </label><p id="gravidade_txt"> ${_gravidade}</p><br>
+<label>Nome: </label><p> ${_nome}</p><br>
+<label>Idade: </label><p> ${_idade} anos</p> <br>
+<label>CPF: </label><p> ${_cpf}</p><br>
+<label>Sexo: </label><p> ${_sexo}</p><br>
+<label>Celular: </label><p> ${_celular}</p><br>
+<label>E-Mail: </label><p> ${_email}</p><br>
+<label>Temperatura Corporal: </label><p> ${_temperatura} °C</p><br>
+<label>Pressão Arterial: </label><p> ${_pressao} mmHg</p><br>
+<label>Sintomas: </label><p> ${_sintomas}</p><br>
+<label>Possivel Diagnostico: </label><p> ${_diagnostico}</p>
 `;
 
 if (_gravidade == "Não Urgente") {
     document.getElementById("gravidade_txt").style.background = "DodgerBlue";
-    document.getElementById("gravidade_txt").style.color = "white";
 } else if (_gravidade == "Pouco Urgente") {
     document.getElementById("gravidade_txt").style.background = "green";
 } else if (_gravidade == "Urgente") {
     document.getElementById("gravidade_txt").style.background = "yellow";
-    document.getElementById("gravidade_txt").style.color = "white";
 } else if (_gravidade == "Muito Urgente") {
     document.getElementById("gravidade_txt").style.background = "orange";
 } else if (_gravidade == "Emergente") {
