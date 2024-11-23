@@ -10,8 +10,56 @@
 </head>
 
 <body id="index">
+    <main>
+        <h1>Cadastro de Paciente</h1>
 
-    <script language="JavaScript" src="_js/validacao.js"></script>
+        <form id="formulario">
+            <label>Nome Completo:</label>
+            <input id="nome" type="text" placeholder="Digite seu nome completo..." required>
+            <p id="nome_feedback" class="feedback"></p>
+
+            <label>Data de Nascimento:</label>
+            <input id="nascimento" type="date" required>
+            <p id="nascimento_feedback" class="feedback"></p>
+
+            <label>CPF:</label>
+            <input id="cpf" type="text" placeholder="000.000.000-00" oninput="autoincremento(this, 'CPF')" required>
+            <p id="cpf_feedback" class="feedback"></p>
+
+            <label>Sexo:</label>
+            <div id="div_sexo">
+                <input type="radio" name="sexo" id="masculino" value="Masculino" required>
+                <label for="masculino">Masculino</label>
+                <input type="radio" name="sexo" id="feminino" value="Feminino" required>
+                <label for="feminino">Feminino</label>
+            </div>
+
+            <label>Celular:</label>
+            <input id="celular" type="tel" placeholder="(00) 00000 - 0000" oninput="autoincremento(this, 'CEL')"
+                required>
+                <p id="celular_feedback" class="feedback"></p>
+
+            <label>E-Mail:</label>
+            <input id="e-mail" type="email" placeholder="seu.email@mail.com" required>
+            <p id="email_feedback" class="feedback"></p>
+
+            <label>Endereço Completo:</label>
+            <input id="endereco" type="text" placeholder="Logradouro, Numero - Bairro, Cidade" required>
+            <p id="endereco_feedback" class="feedback"></p>
+
+            <label>CEP:</label>
+            <input id="cep" type="text" placeholder="00000-000" oninput="autoincremento(this, 'CEP')" required>
+            <p id="cep_feedback" class="feedback"></p>
+
+            <div id="btn_verificar">
+                <input id="enviar" class="btn_confirma" type="submit" value="Castrar">
+                <a id="btn_triagem" class="btn_triagem" href="_html/formulario_triagem.html">Ir para triagem</a>
+            </div>
+
+        </form>
+    </main>
+
+    <script language="JavaScript" src="_js/validacao_cadastro.js"></script>
 </body>
 
 </html>
