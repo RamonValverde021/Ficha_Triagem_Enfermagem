@@ -139,20 +139,25 @@ div#relatorio_final {
 }
 
 p.feedback {
-    color: #2d3b48;
-    font-size: 35pt;
+    margin-bottom: 30px;
+}
+
+.pass {
+    color: green;
+    font-size: 10pt;
     word-break: break-all;
     border-radius: 10px;
     padding: 5px 10px;
     margin-bottom: 30px;
 }
 
-.pass {
-    color: green;
-}
-
 .fail {
     color: red;
+    font-size: 10pt;
+    word-break: break-all;
+    border-radius: 10px;
+    padding: 5px 10px;
+    margin-bottom: 30px;
 }
 
 p.relatorio {
