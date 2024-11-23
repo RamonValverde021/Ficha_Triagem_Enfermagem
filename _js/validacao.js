@@ -107,7 +107,7 @@ document.getElementById("formulario").addEventListener("submit", function (event
         sessionStorage.setItem('NOME', nome);
         sessionStorage.setItem('IDADE', idade);
         sessionStorage.setItem('CPF', cpf);
-        sessionStorage.setItem('SEXO', sexo);
+        sessionStorage.setItem('SEXO', sexo.value);
         sessionStorage.setItem('CELULAR', celular);
         sessionStorage.setItem('EMAIL', email);
         sessionStorage.setItem('SINTOMAS', sintomas);

@@ -125,34 +125,26 @@ input[type=radio] {
     vertical-align: baseline;
 }
 
-select option {
-    border-radius: 15px;
-}
-
 div#div_sexo {
     display: flex;
     flex-direction: row;
     margin-top: 10px;
 }
 
-div#resultados {
-    text-align: left;
-}
-
-label.relatorio {
-    margin-bottom: 5%;
-}
-
-div#relatorio {
+div#relatorio_final {
     text-align: left;
     display: flex;
     align-items: flex-start;
     flex-direction: column;
 }
 
+
 p {
     color: #2d3b48;
     font-size: 15pt;
+    word-break: break-all;
+    border-radius: 10px;
+    padding: 5px 10px;
 }
 
 /* -------------------------------------------------------- */
