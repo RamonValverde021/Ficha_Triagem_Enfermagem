@@ -276,7 +276,14 @@ document.getElementById("formulario").addEventListener("submit", function (event
         sessionStorage.setItem('GRAVIDADE', gravidade);
         sessionStorage.setItem('TEMPERATURA', temperatura);
         sessionStorage.setItem('PRESSAO', pressao);
-        window.location.href = "../_html/relatorio.html";
+
+        document.getElementById('mensagem_sucesso').style.display = 'block';
+        document.getElementById('mensagem_sucesso').scrollIntoView({ behavior: 'smooth', block: 'center' });
+        setTimeout(function() {
+            window.location.href = "../_html/relatorio.html";
+        }, 2000); 
+
+        
     } else {
         //alert("ACESSO NEGADO: verifique as informações");
         return;

@@ -156,7 +156,7 @@ function autoincremento(dado, tipo) {
     if (tipo == "CEP") {
         dado.setAttribute("maxlength", "9");
         if (valor.length == 5) dado.value += "-";
-      }
+    }
 }
 
 // Função que verifica se está tudo ok e envia o relatorio
@@ -178,7 +178,13 @@ document.getElementById("formulario").addEventListener("submit", function (event
         sessionStorage.setItem('SEXO', sexo.value);
         sessionStorage.setItem('CELULAR', celular);
         sessionStorage.setItem('EMAIL', email);
-        window.location.href = "_html/formulario_triagem.html";
+
+        document.getElementById('mensagem_sucesso').style.display = 'block';
+        document.getElementById('mensagem_sucesso').scrollIntoView({ behavior: 'smooth', block: 'center' });
+        setTimeout(function () {
+            window.location.href = "_html/formulario_triagem.html";
+        }, 2000);
+
     } else {
         //alert("ACESSO NEGADO: verifique as informações");
         return;

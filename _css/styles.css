@@ -72,6 +72,18 @@ h1 {
     animation: slideIn 1s ease-in-out;
 }
 
+h2 {
+    display: none;
+    animation: fadeIn 1s;
+    width: 100%;
+    padding: 10px 0;
+    font-size: 25px;
+    color: #1a567b;
+    text-shadow: 0 0 25px rgba(0, 122, 255, 0.8);
+    font-weight: bold;
+    text-align: center;
+}
+
 h3 {
     font-size: 20px;
     color: #1a567b;
@@ -96,6 +108,18 @@ input {
     border-radius: 10px;
     margin-top: 10px;
     border: 2px #1a567b solid;
+}
+
+input:focus {
+    border-color: #007aff;
+    box-shadow: 0 0 12px rgba(0, 122, 255, 0.5);
+    outline: none;
+}
+
+input[type="radio"]:focus {
+    border-color: none;
+    box-shadow: none;
+    outline: none;
 }
 
 textarea {

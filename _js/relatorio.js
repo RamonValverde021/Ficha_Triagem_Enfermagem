@@ -9,8 +9,6 @@ const _gravidade = sessionStorage.getItem('GRAVIDADE');
 const _temperatura = sessionStorage.getItem('TEMPERATURA');
 const _pressao = sessionStorage.getItem('PRESSAO');
 
-const _diagnostico = "Olhando no ChatGPT";
-
 document.getElementById('relatorio_final').innerHTML = `
 <label>Gravidade da Situação: </label><p id="gravidade_txt" class="relatorio"> ${_gravidade}</p><br>
 <label>Nome: </label><p class="relatorio"> ${_nome}</p><br>
@@ -22,7 +20,6 @@ document.getElementById('relatorio_final').innerHTML = `
 <label>Temperatura Corporal: </label><p class="relatorio"> ${_temperatura} °C</p><br>
 <label>Pressão Arterial: </label><p class="relatorio"> ${_pressao} mmHg</p><br>
 <label>Sintomas: </label><p class="relatorio"> ${_sintomas}</p><br>
-<label>Possivel Diagnostico: </label><p class="relatorio"> ${_diagnostico}</p>
 `;
 
 if (_gravidade == "Não Urgente") {
