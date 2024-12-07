@@ -66,10 +66,14 @@ window.onload = function () {
     if (sessionStorage.getItem('SEXO')) {
         if (sessionStorage.getItem('SEXO') == 'Masculino') {
             document.getElementById("masculino").checked = true;
+            okSexo
         } else {
             document.getElementById("feminino").checked = true;
         }
         sexo = sessionStorage.getItem('SEXO');
+        let feedback = document.getElementById('sexo_feedback');
+        feedback.innerText = '✔️ Sexo válido';
+        feedback.className = "pass";
         okSexo = true;
     }
 }
@@ -279,11 +283,11 @@ document.getElementById("formulario").addEventListener("submit", function (event
 
         document.getElementById('mensagem_sucesso').style.display = 'block';
         document.getElementById('mensagem_sucesso').scrollIntoView({ behavior: 'smooth', block: 'center' });
-        setTimeout(function() {
+        setTimeout(function () {
             window.location.href = "../_html/relatorio.html";
-        }, 2000); 
+        }, 2000);
 
-        
+
     } else {
         //alert("ACESSO NEGADO: verifique as informações");
         return;

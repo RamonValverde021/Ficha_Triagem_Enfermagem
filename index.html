@@ -10,16 +10,17 @@
 </head>
 
 <body id="index">
+    <div id="Titles">
+        <h1>Cadastro do Paciente</h1>
+    </div>
     <main>
-        <h1>Cadastro de Paciente</h1>
-
         <form id="formulario">
             <label>Nome Completo:</label>
             <input id="nome" type="text" placeholder="Digite seu nome completo..." required>
             <p id="nome_feedback" class="feedback"></p>
 
             <label>Data de Nascimento:</label>
-            <input id="nascimento" type="date" required>
+            <input id="nascimento" type="date" placeholder="dd/mm/aaaa" required>
             <p id="nascimento_feedback" class="feedback"></p>
 
             <label>CPF:</label>
@@ -33,11 +34,12 @@
                 <input type="radio" name="sexo" id="feminino" value="Feminino" required>
                 <label for="feminino">Feminino</label>
             </div>
+            <p id="sexo_feedback" class="feedback"></p>
 
             <label>Celular:</label>
             <input id="celular" type="tel" placeholder="(00) 00000 - 0000" oninput="autoincremento(this, 'CEL')"
                 required>
-                <p id="celular_feedback" class="feedback"></p>
+            <p id="celular_feedback" class="feedback"></p>
 
             <label>E-Mail:</label>
             <input id="e-mail" type="email" placeholder="seu.email@mail.com" required>
@@ -52,7 +54,7 @@
             <p id="cep_feedback" class="feedback"></p>
 
             <div id="btn_verificar">
-                <input id="enviar" class="btn_confirma" type="submit" value="Castrar">
+                <input id="enviar" class="btn_confirma" type="submit" value="Cadastrar">
                 <a id="btn_triagem" class="btn_triagem" href="_html/formulario_triagem.html">Ir para triagem</a>
             </div>
 

@@ -2,7 +2,7 @@
 let okNome, okIdade, okCPF, okSexo, okCelular, okEmail, okCEP, okEndereco = false;
 
 // Inicias os dados recebidos do formulario globalmente
-let nome, nascimento, cpf, celular, email, cep, endereco;
+let nome, nascimento, cpf, sexo, celular, email, cep, endereco, idade;
 
 // Validar nome (deve ter pelo menos 3 letras)
 document.getElementById("nome").addEventListener("input", function () {
@@ -19,11 +19,15 @@ document.getElementById("nome").addEventListener("input", function () {
     }
 });
 
-// Validar nascimento
+// Validar idade
 document.getElementById("nascimento").addEventListener("input", function () {
     nascimento = document.getElementById("nascimento").value;
+    var dataAtual = new Date();
+    var anoAtual = dataAtual.getFullYear();
+    const anoNascimento = new Date(nascimento).getFullYear();
+    idade = anoAtual - anoNascimento;
     let feedback = document.getElementById('nascimento_feedback');
-    if (nascimento) {
+    if (idade >= 18 && idade <= 120) {
         feedback.innerText = '✔️ Idade válida';
         feedback.className = "pass";
         okIdade = true;
@@ -71,6 +75,37 @@ function validarCPF(cpf) {
     if ((Resto == 10) || (Resto == 11)) Resto = 0;
     if (Resto != parseInt(strCPF.substring(10, 11))) return false;
     return true;
+}
+
+// Validar Sexo
+
+// Adiciona um event listener para ouvir as mudanças nos radio buttons
+const radios = document.querySelectorAll('input[name="sexo"]');
+radios.forEach(radio => {
+    radio.addEventListener('change', mostrarMensagem);
+});
+
+// Função para exibir a mensagem com base na seleção
+function mostrarMensagem() {
+    sexo = document.querySelector('input[name="sexo"]:checked'); // Seleciona o botão de rádio selecionado
+    // Obtém todos os inputs do tipo "radio" com o nome 'sexo'
+    const radios = document.querySelectorAll('input[name="sexo"]');
+    // Itera sobre os radios para verificar qual foi marcado
+    radios.forEach(radio => {
+        if (radio.checked) {
+            const mensagem = radio.value;
+            let feedback = document.getElementById('sexo_feedback');
+            if (mensagem === 'Masculino' || mensagem === 'Feminino') {
+                feedback.innerText = '✔️ Sexo válido';
+                feedback.className = "pass";
+                okSexo = true;
+            } else {
+                feedback.innerText = '❌ Sexo inválido';
+                feedback.className = "fail";
+                okSexo = false;
+            }
+        }
+    });
 }
 
 // Validar Celular
@@ -162,14 +197,6 @@ function autoincremento(dado, tipo) {
 // Função que verifica se está tudo ok e envia o relatorio
 document.getElementById("formulario").addEventListener("submit", function (event) {
     event.preventDefault(); // Evita o envio padrão do formulário
-
-    // Validar Sexo
-    const sexo = document.querySelector('input[name="sexo"]:checked'); // Seleciona o botão de rádio selecionado
-    if (sexo) {
-        okSexo = true;
-    } else {
-        okSexo = false;
-    }
 
     if (okNome && okIdade && okCPF && okSexo && okCelular && okEmail && okCEP && okEndereco) {
         sessionStorage.setItem('NOME', nome);
